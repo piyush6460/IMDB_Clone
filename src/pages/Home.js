@@ -36,7 +36,7 @@ function Home() {
     <div className="App">
       {/* <p>{result[0].backdrop_path}</p> */}
 
-      {/* <div id="carouselExampleCaptions" className="carousel slide">
+      <div id="carouselExampleCaptions" className="carousel slide">
         <div className="carousel-indicators">
           <button
             type="button"
@@ -119,7 +119,7 @@ function Home() {
           ></span>
           <span className="visually-hidden">Next</span>
         </button>
-      </div> */}
+      </div>
 
       {result.map((movies, index) => {
         var text = movies.overview;
