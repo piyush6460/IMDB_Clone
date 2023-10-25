@@ -68,5 +68,3 @@ function Navbar({ setSearchval, searchval }) {
     </div>
   );
 }
-
-export default Navbar;
