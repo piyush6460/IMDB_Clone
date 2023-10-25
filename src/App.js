@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import "./App.css";
+import Homea from "./pages/Home";
+import Populer from "./pages/Populer";
+import UpComing from "./pages/UpComing";
+import TopRated from "./pages/TopRated";
+import MoviesDetail from "./pages/MoviesDetail";
+import SearchMovies from "./pages/SearchMovies";
+import Navbar from "./component/Navbar";
 function App() {
+  const [searchval, setSearchval] = useState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar searchVal={searchval} setSearchval={setSearchval} />
+      <Routes>
+        <Route path="/" element={<Homea />} />
+        <Route path="/populer" element={<Populer />} />
+        <Route path="/upcoming" element={<UpComing />} />
+        <Route path="/toprated" element={<TopRated />} />
+        <Route path="/movies/:id" element={<MoviesDetail />} />
+        <Route
+          path="/movies/search"
+          element={<SearchMovies searchVal={searchval} />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
